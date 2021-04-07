@@ -36,7 +36,11 @@ class RadioTest {
         radio.setCurrentVolume(8);
         radio.volumeUp();
         assertEquals(9, radio.getCurrentVolume());
+    }
 
+    @Test
+    void shouldMaxVolume() {
+        Radio radio = new Radio();
         radio.setCurrentVolume(10);
         radio.volumeUp();
         assertEquals(10, radio.getCurrentVolume());
@@ -45,12 +49,16 @@ class RadioTest {
     @Test
     void shouldVolumeDown() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(0);
-        radio.volumeDown();
-        assertEquals(0, radio.getCurrentVolume());
-
         radio.setCurrentVolume(3);
         radio.volumeDown();
         assertEquals(2, radio.getCurrentVolume());
+    }
+
+    @Test
+    void shouldMiVolume() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(0);
+        radio.volumeDown();
+        assertEquals(0, radio.getCurrentVolume());
     }
 }
